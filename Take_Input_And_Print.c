@@ -2,7 +2,6 @@
 int main()
 {
     char take[100];
-    scanf("%[^
-]s",&take);
+    scanf("%[^]s",&take);
     printf("%s",take);
 }
