@@ -9,12 +9,10 @@ int main()
     {
         scanf("%d",&a[i]);
     }
-    for(i=0;i<n;i++)
+    for(i=0;i<n;i=i+2)
     {
-        if(i%2==0)
-        {
         sum+=a[i];
     }
-    }
+    
     printf("%d",sum);
 }
