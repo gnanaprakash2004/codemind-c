@@ -1,41 +1,34 @@
 #include<stdio.h>
-int prime(int n)
-{
-    int c=0;
-    for(int i=1;i<=n;i++)
-    {
-        if(n%i==0)
-        {
-            c++;
-        }
-    }
-    if(c==2)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
 int main()
 {
-    int n;
+    int n,i,c,j,d=0,k;
+    float res,sum=0;
     scanf("%d",&n);
-    int arr[n];
-    for(int i=0;i<n;i++)
+    int a[100];
+    for(i=0;i<n;i++)
     {
-        scanf("%d",&arr[i]);
+        scanf("%d",&a[i]);
     }
-    int sum=0,c=0;
-    for(int i=0;i<n;i++)
-    {
-        if(prime(arr[i])==1)
+    scanf("%d",&k);
+    for(i=0;i<n;i++)
+    { c=0;
+        if(a[i]!=1 && a[i]!=0)
         {
-            c++;
-            sum+=arr[i];
+        for(j=2;j*j<=a[i];j++)
+        {
+            if(a[i]%j==0)
+            {
+                c=1;
+                
+            }
+        }
+        if(c==0)
+        {
+            sum+=a[i];
+            d++;
+        }
         }
     }
-    float a=(sum*1.0)/c;
-    printf("%.2f",a);
+    res=(sum/d);
+    printf("%.2f",res);
 }
