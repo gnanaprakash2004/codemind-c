@@ -1,53 +1,56 @@
 #include<stdio.h>
-int prime(int num)
+int prime(int n)
 {
-    int c=0,i;
-    for (i=1; i<=num; i++)
+    int i;
+    if(n<=1)
     {
-        if (num%i==0)
+        return 0;
+    }
+    for(i=2;i<n;i++)
+    {
+        if(n%i==0)
         {
-            c++;
+            return 0;
         }
     }
-    if (c==2)
-    {
-        return 1;
-    }
-    return 0;
+    return 1;
 }
 int main()
 {
-    int a;
-    scanf("%d",&a);
-    int arr[a],i;
-    for (i=0; i<a; i++)
+    int n,arr[100],max=0,min=0,imin=0,imax=0,z=0,i;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
     {
         scanf("%d",&arr[i]);
     }
-    int c=0,min=arr[0],max=arr[0],minind=0,maxind=0;
-    for (i=0; i<a; i++)
+    max=arr[0];
+    for(i=1;i<n;i++)
     {
-        if (min>arr[i])
-        {
-            min=arr[i];
-            minind=i;
-        }
-        if (max<arr[i])
+        if(arr[i]>max)
         {
             max=arr[i];
-            maxind=i;
+            imax=i;
         }
     }
-    for (i=0; i<a; i++)
+    min=arr[0];
+    for(i=1;i<n;i++)
     {
-        if (prime(arr[i])==1)
+        if(arr[i]<min)
         {
-            if ((i>=minind && i<=maxind) || i<=minind && i>=maxind)
+            min=arr[i];
+            imin=i;
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        if(i>=imin && i<=imax||i<=imin && i>=imax)
+        {
+            if(prime(arr[i])==1)
             {
-                c++;
+                z+=1;
             }
         }
     }
-    printf("%d",c);
-    return 0;
+    printf("%d",z);
+    
 }
