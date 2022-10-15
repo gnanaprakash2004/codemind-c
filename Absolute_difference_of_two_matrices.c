@@ -1,48 +1,51 @@
 #include<stdio.h>
 int main()
 {
-    int a;
-    scanf("%d",&a);
-    int mat1[a][a],mat2[a][a],i,j;
-    for (i=0; i<a; i++)
+    int m,n,a[10][10],i,j,b[10][10];
+    scanf("%d",&m);
+    for(i=0;i<m;i++)
     {
-        for (j=0; j<a; j++)
+        for(j=0;j<m;j++)
         {
-            scanf("%d",&mat1[i][j]);
+            scanf("%d",&a[i][j]);
         }
     }
-    for (i=0; i<a; i++)
+    for(i=0;i<m;i++)
     {
-        for (j=0; j<a; j++)
+        for(j=0;j<m;j++)
         {
-            scanf("%d",&mat2[i][j]);
+            scanf("%d",&b[i][j]);
         }
     }
-    int diff[a][a];
-    for (i=0; i<a; i++)
+    int s=0,k=0;
+    for(i=0;i<m;i++)
     {
-        for (j=0; j<a; j++)
+        for(j=0;j<m;j++)
         {
-            int d=mat1[i][j]-mat2[i][j];
-            if (d<0)
+            if(a[i][j]>b[i][j])
             {
-                d*=-1;
+                if(j+1<m)
+                {
+                printf("%d ",a[i][j]-b[i][j]);
+                }
+                else
+                {
+                    printf("%d",a[i][j]-b[i][j]);
+                }
             }
-            diff[i][j]=d;
-        }
-    }
-    for (i=0; i<a; i++)
-    {
-        for (j=0; j<a; j++)
-        {
-            printf("%d",diff[i][j]);
-            if (j<a-1)
+            else
             {
-                printf(" ");
+                if(j+1<m)
+                {
+                printf("%d ",b[i][j]-a[i][j]);
+                }
+                else{
+                    printf("%d",b[i][j]-a[i][j]);
+                }
             }
         }
         printf("
 ");
     }
-    return 0;
+    
 }
