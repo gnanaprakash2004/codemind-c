@@ -1,49 +1,39 @@
 #include<stdio.h>
 int main()
 {
-    int a,b;
-    scanf("%d%d",&a,&b);
-    int arr[a][b],i,j;
-    for (i=0; i<a; i++)
+    int r,c,i,j,max=0;
+    scanf("%d%d",&r,&c);
+    int a[r][c];
+    for(i=0;i<r;i++)
     {
-        for (j=0; j<b; j++)
+        for(j=0;j<c;j++)
         {
-            scanf("%d",&arr[i][j]);
+            scanf("%d",&a[i][j]);
         }
     }
-    int rs=0,max=0;
-    for (i=0; i<a; i++)
+    for(i=0;i<r;i++)
     {
-        rs=0;
-        for (j=0;j<b;j++)
+        int s=0;
+        for(j=0;j<c;j++)
         {
-            rs+=arr[i][j];
+            s+=a[i][j];
         }
-        if (rs>max)
+        if(max<s)
         {
-            max=rs;
-        }
-    }
-    int cs=0,max1=0;
-    for (j=0; j<b; j++)
-    {
-        cs=0;
-        for (i=0;i<a;i++)
-        {
-            cs+=arr[i][j];
-        }
-        if (cs>max1)
-        {
-            max1=cs;
+            max=s;
         }
     }
-    if(max1>max)
+    for(i=0;i<c;i++)
     {
-    printf("%d",max1);
+        int z=0;
+        for(j=0;j<r;j++)
+        {
+            z+=a[j][i];
+        }
+        if(max<z)
+        {
+            max=z;
+        }
     }
-    else
-    {
-        printf("%d",max);
-    }
-    return 0;
+    printf("%d",max);
 }
